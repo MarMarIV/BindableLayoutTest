@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BindableLayoutTest.MainPage">
+
+    <ScrollView BackgroundColor="Yellow" VerticalOptions="Fill" Padding="42,28,42,50">
+        <Grid ColumnSpacing="32" 
+              VerticalOptions="Fill" HorizontalOptions="Fill"
+              BackgroundColor="Green">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <VerticalStackLayout Grid.Column="1" 
+                                 x:Name="InnerVerticalStackLayout"
+                                 BackgroundColor="Green"
+                                 Margin="10">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding .}"
+                               BackgroundColor="Red"
+                               Margin="10"/>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>
